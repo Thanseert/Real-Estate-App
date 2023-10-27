@@ -5,7 +5,6 @@ import bcryptjs from "bcryptjs";
 const router = express.Router();
 
 router.post("/signup", async function(req, res, next){  
-    
     const {username, email, password} = req.body;
     const hashedpasssword =  bcryptjs.hashSync(password, 10);
     const newUser = new User({username, email, password: hashedpasssword});
